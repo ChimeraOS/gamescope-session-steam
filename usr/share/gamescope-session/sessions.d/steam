@@ -1,3 +1,5 @@
+#! /bin/bash
+
 function short_session_recover {
     mkdir -p ~/.local/share/Steam
     # remove some caches and stateful things known to cause Steam to fail to start if corrupt
