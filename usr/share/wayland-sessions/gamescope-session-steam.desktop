@@ -2,6 +2,6 @@
 Encoding=UTF-8
 Name=Steam Big Picture
 Comment=Steam Big Picture session
-Exec=gamescope-session steam
+Exec=gamescope-session-plus steam
 Type=Application
 DesktopNames=gamescope
