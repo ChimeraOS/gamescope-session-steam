@@ -15,7 +15,7 @@ function short_session_recover {
 function post_gamescope_start {
 	# Run steam-tweaks if exists
 	if command -v steam-tweaks > /dev/null; then
-		steam-tweaks > "${HOME}"/.steam-tweaks.log
+		steam-tweaks
 	fi
 }
 
@@ -108,15 +108,7 @@ if [[ -f "/etc/first-boot/bootstraplinux_ubuntu12_32.tar.xz" ]] && ! grep -q "se
     echo "set_bootstrap=1" >> "$STEAM_BOOTSTRAP_CONFIG"
 fi
 
-# Log rotate the last session
-if [ -f "${HOME}"/.steam-tweaks.log ]; then
-    cp "${HOME}"/.steam-tweaks.log "${HOME}"/.steam-tweaks.log.old
-fi
-if [ -f "${HOME}"/.steam_notif_daemon-stdout.log ]; then
-    cp "${HOME}"/.steam_notif_daemon-stdout.log "${HOME}"/.steam_notif_daemon-stdout.log.old
-fi
-
 # If we have steam_notif_daemon binary start it
 if command -v steam_notif_daemon > /dev/null; then
-    steam_notif_daemon > "${HOME}"/.steam_notif_daemon-stdout.log 2>&1 &
+    steam_notif_daemon &
 fi
